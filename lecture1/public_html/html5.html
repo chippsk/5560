@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            <meta charset="UTF-8"/>
+        </title>
+    </head>
+    <body>
+
+        <video width="320" height="240" controls="controls">
+            <source src="movie.ogg" type="video/ogg" />
+            <source src="movie.mp4" type="video/mp4" />
+            � <source src="movie.webm" type="video/webm" />
+            Your browser does not support the video tag.
+        </video>
+
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+            Your browser does not support the canvas element.
+        </canvas>
+
+        <svg height="100" width="100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+        Sorry, your browser does not support inline SVG.  
+        </svg>
+
+        <script type="text/javascript">
+
+            var c = document.getElementById("myCanvas");
+            var cxt = c.getContext("2d");
+            cxt.moveTo(10, 10);
+            cxt.lineTo(150, 50);
+            cxt.lineTo(10, 50);
+            cxt.stroke();
+
+        </script>
+
+    </body>
+</html>

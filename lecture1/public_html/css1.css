@@ -1,0 +1,18 @@
+p
+{
+    color:red;
+    text-align:center;
+    font-family:courier;
+}
+table
+{
+    float:right;
+}
+a
+{
+    background:yellow;
+}
+a:hover
+{
+    background:red;
+}
