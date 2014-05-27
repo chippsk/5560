@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="left">
+                left
+            </ui:define>
+
+            <ui:define name="right">
+                right
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+                    <h:form rendered="#{loginBean.auth}">
+                        <h:commandLink value="logout" action="#{loginBean.logout()}" style="float:right;"></h:commandLink>
+                        <h:dataTable var="vehicle" value="#{loginBean.allVehicles}">
+                            <h:column>
+                                <f:facet name="header">Make</f:facet>
+                                #{vehicle.make}</h:column>
+                            <h:column>
+                                <f:facet name="header">Model</f:facet>
+                                #{vehicle.model}</h:column>
+                            <h:column>
+                                <f:facet name="header">year</f:facet>
+                                #{vehicle.year}</h:column>
+                            <h:column>
+                                <f:facet name="delete"></f:facet>
+                                <h:commandButton value="delete" action="#{loginBean.deleteVehicle(vehicle)}"></h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                        <h:panelGrid>
+                            <h:outputLabel value="Make"></h:outputLabel>
+                            <h:inputText value="#{loginBean.make}"></h:inputText>
+                            <h:outputLabel value="Model"></h:outputLabel>
+                            <h:inputText value="#{loginBean.model}"></h:inputText>
+                            <h:outputLabel value="Year"></h:outputLabel>
+                            <h:inputText value="#{loginBean.year}"></h:inputText>
+                        </h:panelGrid>
+                        <h:commandLink value="add" action="#{loginBean.addVehicle()}"></h:commandLink>
+                    </h:form>
+                    
+                </f:view>
+            
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
