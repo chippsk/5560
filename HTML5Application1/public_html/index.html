@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div> <form>
+            The First Number is <input type="text" id="a"><br>
+            The 2 Number is <input type="text" id="b"><br>
+            <input type="button" onclick="add()" value="add">
+            The total Number is <input type="text" id="c"><br>
+            </form></div>
+        
+        <div>
+            <table id="myTable">
+                
+            </table>
+        </div>
+        <script>
+            function add(){
+                var a = $("#a").val();
+                var b = $("#b").val();
+                var serviceURL = "http://localhost:8080/ServiceWebApplication/webresources/add/"+a+ "/"+b;
+                //Call RESTful service
+                $.ajax({
+                    url: serviceURL,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data){
+                        $("#c").val(data,result);
+                    },
+                    error: function(){
+                        alert("failure");
+                    }
+                    
+                });
+                
+                $("myTable").insertAfter();
+            }
+        </script>
+            
+    </body>
+</html>
